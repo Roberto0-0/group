@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+    <title>Documents</title>
+    <link rel="stylesheet" href="/css/transfer/bank_pay/style.css">
+</head>
+<body>
+  <div class="container">
+    <% if(BANK_ACCOUNT) { %>
+      <form action="/group/bank/pay/<%= BANK_ACCOUNT.user_id %>" method="POST">
+        <ul class="userInfo">
+          <li>
+            <img src="/assets/user-circle-light.svg" />
+            <h3>Cliente</h3>
+            <span><%= BANK_ACCOUNT.name %></span>
+          </li>
+          <li>
+            <img src="/assets/money-light.svg" />
+            <h3>Salário</h3>
+            <span class="money"><%= BANK_ACCOUNT.wage %></span>
+          </li>
+        </ul>
+        <button>confirmar</button>
+      </form>
+    <% } %>
+  </div>
+  <script type="module" src="/js/transfer/bank_pay/main.js"></script>
+</body>
+</html>

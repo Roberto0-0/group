@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+    <link rel="stylesheet" href="/css/user/dashboard/style.css">
+    <title>Documents</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="" class="logo">DDT</a>
+      <nav class="nav">
+        <% if(user.isAdmin) { %>
+          <% if(user.bank_account) { %>
+            <ul>
+              <a href="/group">Grupo</a>
+              <a href="/group/account/info/<%= user.user_id %>">Conta bancária</a>
+              <a href="#">Configurações</a>
+              <a href="#">Editar economia</a>
+              <a href="/group/bank/account/settings">Editar conta bancária</a>
+              <a href="/group/economic/create">Criar economia</a>
+              <a href="/group/bank/account">Contas bancárias</a>
+              <a href="/logout">Sair</a>
+            </ul>
+          <% } else { %>
+            <ul>
+              <a href="/group">Grupo</a>
+              <a href="/group/create/bank/account/<%= user.user_id %>">Criar uma conta no banco</a>
+              <a href="#">Configurações</a>
+              <a href="#">Editar economia</a>
+              <a href="/group/bank/account/settings">Editar conta bancária</a>
+              <a href="/group/economic/create">Criar economia</a>
+              <a href="/group/bank/account">Contas bancárias</a>
+              <a href="/logout">Sair</a>
+            </ul>
+          <% } %>
+        <% } else { %>
+          <% if(user.bank_account) { %>
+            <ul>
+              <a href="/group">Grupo</a>
+              <a href="/group/account/info/<%= user.user_id %>">Conta bancária</a>
+              <a href="#">Configurações</a>
+              <a href="/logout">Sair</a>
+            </ul>
+          <% } else { %>
+            <ul>
+              <a href="/group">Grupo</a>
+              <a href="/group/create/bank/account/<%= user.user_id %>">Criar uma conta no banco</a>
+              <a href="#">Configurações</a>
+              <a href="/logout">Sair</a>
+            </ul>
+          <% } %>
+        <% } %>
+      </nav>
+
+      <div class="menu">
+          <img src="/assets/list-bold.svg" alt="" width="100%">
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class=status>
+      <% if(user) { %>
+        <h2>Olá, <%= user.name %></h2>
+      <% } %>
+  </div>
+  <% if(error.length > 0) { %>
+    <div class="error_message">
+      <span><%= error %></span>
+    </div>
+  <% } %>
+  <% if(success_message.length > 0) { %>
+    <div class="success_message">
+      <span><%= success_message %></span>
+    </div>
+  <% } %>
+  <% if(error_message.length > 0) { %>
+    <div class="error_message">
+      <span><%= error_message %></span>
+    </div>
+  <% } %>
+  <script src="/js/home/menu/main.js"></script>
+</body>
+</html>

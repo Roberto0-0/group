@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/bank_account/create/style.css">
+    <title>Documents</title>
+</head>
+<body>
+  <div class="container">
+    <h2>Criar conta bancária</h2>
+    <% if(user) { %>
+      <form action="/group/create/bank/account/<%= user.user_id %>" method="POST" enctype="multipart/form-data">
+        <label for="image">
+          <img src="/assets/file-arrow-up-light.svg" />
+          <p>Browser file to upload</p>
+        </label>
+        <input type="file" name="image" id="image" class="input-file" accept="image/*" required />
+        <span class="check-file">
+          <img src="/assets/circle-light.svg" class="check" width="10%"/>
+          <span class="file-name"></span>
+        </span>
+        
+        <div class="input">
+          <input type="text" name="name" placeholder="Nome" required />
+        </div>
+        <div class="input">
+          <input type="text" name="profession" placeholder="Profissão" required />
+        </div>
+        <button>Enviar</button>
+      </form>
+    <% } %>
+  </div>
+  <script src="/js/bank_account/create/main.js"></script>
+</body>
+</html>

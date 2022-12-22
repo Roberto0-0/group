@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+    <link rel="stylesheet" href="/css/group/style.css">
+    <link rel="stylesheet" href="/css/economic/style.css">
+    <link rel="stylesheet" href="/css/ranking/style.css">
+    <title>Documents</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="" class="logo">DDT</a>
+      <nav class="nav">
+          <ul>
+              <a href="/dashboard">Voltar</a>
+          </ul>
+      </nav>
+
+      <div class="menu">
+          <img src="/assets/list-bold.svg" alt="" width="100%">
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="initial">
+      <img src="./assets/globe-light.svg" />
+      <h2>desgraça_dos_teclados</h2>
+      <img src="./assets/globe-light.svg" />
+    </div>
+    <div class=status>
+      <h2>status econômico</h2>
+      <ul class=container-economic>
+        <% ECONOMIC.forEach((economic) => { %>
+          <li class="li-economic">
+            <div class="info-economic">
+              <img src="/assets/bank-light.svg" />
+                <%= economic.name %>
+                <span class="money-economic"><%= economic.money %></span>
+            </div>
+            <div class="date-time-economic">
+              <span class="date-economic"><%= economic.updatedAt %></span>
+              às
+              <span class="time-economic"><%= economic.updatedAt %></span>
+            </div>
+          </li>
+          <li class="li-economic">
+            <div class="info-economic">
+              <img src="/assets/trend-up-light.png" />
+                Investimento
+                <span class="money-economic"><%= economic.investment %></span>
+            </div>
+            <div class="date-time-economic">
+              <span class="date-economic"><%= economic.updatedAt %></span>
+              às
+              <span class="time-economic"><%= economic.updatedAt %></span>
+            </div>
+          </li>
+          <li class="li-economic">
+            <div class="info-economic">
+              <img src="/assets/trend-down-light.png" />
+                Gastos
+                <span class="money-economic"><%= economic.spending %></span>
+            </div>
+            <div class="date-time-economic">
+              <span class="date-economic"><%= economic.updatedAt %></span>
+              às
+              <span class="time-economic"><%= economic.updatedAt %></span>
+            </div>
+          </li>
+          <li class="li-economic">
+            <div class="info-economic">
+              <img src="/assets/chart-pie-light.svg" />
+                Imposto
+                <span class="percent-economic"><%= (economic.tax).toFixed(2) %>%</span>
+            </div>
+            <div class="date-time-economic">
+              <span class="date-economic"><%= economic.updatedAt %></span>
+              às
+              <span class="time-economic"><%= economic.updatedAt %></span>
+            </div>
+          </li>
+          <li class="li-economic">
+            <div class="info-economic">
+              <img src="/assets/chart-line-light.svg" />
+                Inflação
+                <span class="percent-economic"><%= (economic.inflation).toFixed(2) %>%</span>
+            </div>
+            <div class="date-time-economic">
+              <span class="date-economic"><%= economic.updatedAt %></span>
+              às
+              <span class="time-economic"><%= economic.updatedAt %></span>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+    
+     <div class="status">
+      <h2 class="title">Ranking</h2>
+      <ul class="container-ranking">
+        <% if(BANK_ACCOUNT.length > 0) { %>
+          <% BANK_ACCOUNT.forEach((account) => { %>
+            <li class="li-ranking">
+              <div class="account-info">
+                <div class="names-info">
+                  <h2 class="name"><%= account.name %></h2>
+                  <span class="cargo"><%= account.office %></span>
+                </div>
+                <div class="values-info">
+                  <span class="money"><%= account.money %></span>
+                  <span class="percent"><%= ((account.money/SPENDING)*100).toFixed(2) %>%</span>
+                </div>
+              </div>
+              <div class="gray-line">
+                <div class="progress"></div>
+              </div>
+            </li>
+          <% }) %>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+  <script src="/js/group/menu/main.js"></script>
+  <script src="/js/economic/main.js"></script>
+  <script src="/js/ranking/main.js"></script>
+</body>
+</html>

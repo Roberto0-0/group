@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bank_account/account_list/style.css">
+    <title>Documents</title>
+</head>
+<body>
+  <div class="container">
+    <ul class="candidates">
+      <% BANK_ACCOUNT.forEach((account) => { %>
+        <a href="/group/account/info/<%= account.user_id %>">
+          <li class="li">
+            <div class="first">
+              <div class="candidate">
+                <div class="candidates-info">
+                  <div class="img">
+                    <img src="/<%= account.image %>" />
+                  </div>
+                  <div class="candidates-name">
+                    <h2><%= account.name %></h2>
+                    <span><%= account.office %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </a>
+      <% }) %>
+    </ul>
+  </div>
+  <script src="/js/bank_account/list/main.js"></script>
+</body>
+</html>

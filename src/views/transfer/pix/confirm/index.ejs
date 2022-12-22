@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+    <link rel="stylesheet" href="/css/transfer/pix/confirm/style.css">
+    <title>Documents</title>
+</head>
+<body>
+  <div class="container">
+    <div class="initial">
+      <img src="/assets/5709755.png">
+      <p>CONCLUÍDO COM SUCESSO!</p>
+    </div>
+    <ul class="pay-confirm">
+      <% if(BANK_ACCOUNT_RECEIVED) { %>
+        <li class="li">
+          <img src="/assets/pix-logo.png" />
+          <div class="user-info">
+            <p>Pix - Transferência enviada</p>
+            <div class="name">Para: <span><%= BANK_ACCOUNT_RECEIVED.name %></span></div>
+          </div>
+          <div class="money-info">
+            <span class="date"><%= DATE %></span>
+            <span class="money"><%= MONEY %></span>
+          </div>
+        </li>
+      <% }%>
+    </ul>
+  </div>
+  <% if(BANK_ACCOUNT_SEND) { %>
+    <span id="id" style="display: none;"><%= BANK_ACCOUNT_SEND.user_id %></span>
+  <% } %>
+  <script type="module" src="/js/transfer/pix/confirm/main.js"></script>
+  <script type="module" src="/js/transfer/pix/confirm/transition/main.js"></script>
+</body>
+</html>

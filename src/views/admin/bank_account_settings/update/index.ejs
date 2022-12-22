@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/bank_account/settings/update/style.css">
+    <title>Documents</title>
+</head>
+<body>
+  <div class="container">
+    <h2>create account</h2>
+    <% if(BANK_ACCOUNT) { %>
+      <form action="/group/update/bank/account/<%= BANK_ACCOUNT.user_id %> %>" method="POST">
+        <div class="input">
+          <input type="text" name="name" placeholder="<%= BANK_ACCOUNT.name %>" required />
+        </div>
+        <div class="input">
+          <input type="text" name="profession" placeholder="<%= BANK_ACCOUNT.profession %>" required />
+        </div>
+        <div class="input">
+          <input type="number" name="money" placeholder="<%= BANK_ACCOUNT.money %>" required />
+        </div>
+        
+        <div class="input">
+          <input type="number" name="wage" placeholder="<%= BANK_ACCOUNT.wage %>" required />
+        </div>
+        
+        <div class="input">
+          <input type="number" name="debt" placeholder="<%= BANK_ACCOUNT.debt %>" required />
+        </div>
+        
+        <div class="input">
+          <input type="number" name="investment" placeholder="<%= BANK_ACCOUNT.investment %>" required />
+        </div>
+        <div class="input">
+          <input type="number" name="spending" placeholder="<%= BANK_ACCOUNT.spending %>" required />
+        </div>
+        
+        <button>send</button>
+      </form>
+    <% } %>
+  </div>
+  <script src="/js/bank_account/update/main.js"></script>
+</body>
+</html>

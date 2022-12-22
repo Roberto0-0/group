@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+    <link rel="stylesheet" href="/css/transfer/investment/style.css">
+    <title>Documents</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">DDT</a>
+      <nav class="nav">
+      <% if(BANK_ACCOUNT) { %>
+          <ul>
+            <a href="/group/account/info/<%= BANK_ACCOUNT.user_id %>">voltar</a>
+          </ul>
+      <% } %>
+      </nav>
+      <div class="menu">
+          <img src="/assets/list-bold.svg" alt="" width="100%">
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <% if(BANK_ACCOUNT) { %>
+      <form action="/group/investment/<%= BANK_ACCOUNT.user_id %>" method="POST">
+        <div class="box">
+          <div class="title">
+            <h2>Olá, <%= BANK_ACCOUNT.name %></h2>
+          </div>
+          <div class="input">
+            <label for="investment">Investimento de:</label>
+            <input type="number" name="investment" id="investment" placeholder="R$ 0,00" required/>
+          </div>
+          <label for="text">Investimento em:</label>
+          <textarea name="information" id="text" cols="30" rows="10" required placeholder="Mais informações aqui!"></textarea>
+        </div>
+        <button>confirmar</button>
+      </form>
+    <% } %>
+  </div>
+  <script type="module" src="/js/transfer/investment/menu/main.js"></script>
+</body>
+</html>

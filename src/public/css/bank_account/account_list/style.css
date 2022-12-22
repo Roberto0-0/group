@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  background-color: #f3f3f3;
+  
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 50px auto;
+  padding: 0px 10px 10px 10px;
+  
+  width: 99vw;
+  max-width: 500px;
+  height: auto;
+  
+  border-radius: 10px;
+}
+
+.container .title {
+  margin-right: auto;
+  margin-bottom: 0.2em;
+  
+  color: #595959;
+}
+
+.container .candidates {
+  display: flex;
+  flex-direction: column;
+  
+  margin-bottom: 2em;
+  padding: 0px 15px;
+  
+  width: 100%;
+  height: auto;
+  
+  border-radius: 20px;
+  list-style: none;
+  background-color: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.container .candidates a {
+  text-decoration: none;
+}
+
+.container .candidates .li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
+  padding: 15px 0px 20px 0px;
+  
+  width: 100%;
+  height: auto;
+  
+  border-bottom: 2px solid #f2f2f2;
+}
+
+.container .candidates .li .first {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  margin-bottom: 1em;
+  padding: 0px 0px 20px 0px;
+  
+  width: 100%;
+  height: auto;
+}
+
+.container .candidates .li .candidate {
+  position: relative;
+  
+  width: 100%;
+  height: 70px;
+}
+
+.container .candidates .li.end {
+  border: none;
+}
+
+.container .candidates .candidates-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+  
+  width: 100%;
+}
+
+.container .candidates .candidates-info .img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  margin-top: 10px;
+  
+  width: 65px;
+  height: 65px;
+  
+  border-radius: 50%;
+}
+
+.container .candidates .candidates-info .img img {
+  width: 100%;
+  height: 100%;
+  
+  border-radius: 50%;
+}
+
+.container .candidates .candidates-info .candidates-name {
+  margin-top: 15px;
+  
+  width: 70%;
+}
+
+.container .candidates .candidates-info .candidates-name span {
+  font-size: 0.8em;
+  font-weight: 600;
+  color: #919fab;
+}
+
+.container .candidates .candidates-info .candidates-name h2 {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #595959;
+}

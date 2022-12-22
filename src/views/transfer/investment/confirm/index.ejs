@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+    <link rel="stylesheet" href="/css/transfer/investment/confirm/style.css">
+    <title>Documents</title>
+</head>
+<body>
+  <div class="container">
+    <div class="initial">
+      <img src="/assets/5709755.png">
+      <p>CONCLUÍDO COM SUCESSO!</p>
+    </div>
+    <% if(BANK_ACCOUNT) { %>
+      <ul class="pay-confirm">
+        <li class="li">
+          <label for="investor">Investidor</label>
+          <span id="investor"><%= BANK_ACCOUNT.name%></span>
+        </li>
+        <li class="li">
+          <label for="money">Valor</label>
+          <span id="money" class="money"><%= MONEY %></span>
+        </li>
+        <li class="li">
+          <label id="information">Mais informações</label>
+          <span id="information">
+            <%= INFORMATION %>
+          </span>
+        </li>
+        <li class="li">
+          <span id="date" class="date">
+            <%= DATE %>
+          </span>
+        </li>
+      </ul>
+      <span id="id" style="display: none;"><%= BANK_ACCOUNT.user_id %></span>
+    <% } %>
+  </div>
+  <script type="module" src="/js/transfer/investment/confirm/main.js"></script>
+  <script type="module" src="/js/transfer/investment/confirm/transition/main.js"></script>
+</body>
+</html>

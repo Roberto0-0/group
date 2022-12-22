@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+    <link rel="stylesheet" href="/css/user/register/style.css">
+    <title>Documents</title>
+</head>
+<body>
+  <div class="container">
+    <div class="register">
+        <h2>Register</h2>
+    </div>
+    <form action="/register" method="POST">
+        <div class="input">
+            <img src="/assets/user-bold.svg" alt="">
+            <input type="text" name="name" placeholder="Nome" required>
+       </div>
+        <div class="input">
+             <img src="/assets/envelope-simple-bold.svg" alt="">
+             <input type="email" name="email" placeholder="E-mail" required>
+        </div>
+        <div class="input">
+             <img src="/assets/lock-simple-bold.svg" alt="">
+             <input type="password" name="password" id="password" placeholder="Senha" required>
+             <img src="/assets/eye-bold.svg" id="eye-password" alt="see password" style="cursor: pointer;">
+        </div>
+        <div class="input">
+             <img src="/assets/lock-simple-bold.svg" alt="">
+             <input type="password" name="confirmPassword" id="confirm-password" placeholder="Confirmar senha" required>
+             <img src="/assets/eye-bold.svg" id="eye-confirm-password" alt="see password" style="cursor: pointer;">
+        </div>
+
+        <button>registre-se</button>
+      </form>
+
+      <div class="company">
+        <p>Já tem uma conta? <a href="/login" >clique aqui!</a></p>
+      </div>
+  </div>
+  <% if(error.length > 0) { %>
+    <div class="error_message">
+      <span><%= error %></span>
+    </div>
+  <% } %>
+  <% if(success_message.length > 0) { %>
+    <div class="success_message">
+      <span><%= success_message %></span>
+    </div>
+  <% } %>
+  <% if(error_message.length > 0) { %>
+    <div class="error_message">
+      <span><%= error_message %></span>
+    </div>
+  <% } %>
+  <script type="module" src="/js/user/register/main.js"></script>
+</body>
+</html>

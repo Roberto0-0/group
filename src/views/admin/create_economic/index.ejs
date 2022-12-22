@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/economic/create/style.css">
+    <title>Documents</title>
+</head>
+<body>
+  <div class="container">
+    <h2>public status</h2>
+    <form action="/group/economic/create" method="POST">
+      <div class="input">
+        <input type="text" name="name" placeholder="Name" required />
+      </div>
+      <div class="input">
+        <input type="number" name="money" placeholder="Money" required />
+      </div>
+      <div class="input">
+        <input type="number" name="investment" placeholder="Investment" required />
+      </div>
+      <div class="input">
+        <input type="number" name="spending" placeholder="Spending" required />
+      </div>
+      <div class="input">
+        <input type="number" name="tax" placeholder="Tax" required />
+      </div>
+      <div class="input">
+        <input type="number" name="inflation" placeholder="Inflation" required />
+      </div>
+      <button>send</button>
+    </form>
+  </div>
+  <script src="/js/economic/create/main.js"></script>
+</body>
+</html>

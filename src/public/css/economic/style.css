@@ -1,0 +1,59 @@
+.container .container-economic {
+  display: flex;
+  flex-direction: column;
+  
+  padding: 0px 15px;
+  
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  .li-economicst-style: none;
+}
+
+.container .container-economic .li-economic {
+  display: flex;
+  flex-direction: column;
+  
+  padding: 15px 0px 10px 0px;
+  
+  border-bottom: 2px solid #f2f2f2;
+  
+  font-size: 1em;
+  font-weight: 600;
+  color: #595959;
+}
+
+.container .container-economic .li-economic .info-economic {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+  
+  width: 100%;
+  height: auto;
+}
+
+.container .container-economic .li-economic .info-economic img {
+  width: 8%;
+}
+
+.container .container-economic .end-economic {
+  border-bottom: none;
+}
+
+.container .container-economic .li-economic .info-economic span {
+  margin-left: auto;
+  
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #668cff;
+}
+
+.container .container-economic .date-time-economic {
+  display: block;
+  
+  margin-left: auto;
+  
+  font-size: 0.7em;
+  color: #919fab;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+    <link rel="stylesheet" href="/css/bank_account/account_home/style.css">
+    <title>Documents</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">DDT</a>
+      <nav class="nav">
+          <ul>
+            <a href="#">configuração</a>
+            <a href="/dashboard">voltar</a>
+          </ul>
+      </nav>
+      <div class="menu">
+          <img src="/assets/list-bold.svg" alt="" width="100%">
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <h2 class="title">status bancário</h2>
+    <ul class="candidates">
+      <% if(BANK_ACCOUNT) { %>
+        <li class="li">
+          <div class="first">
+            <div class="candidate">
+              <div class="candidates-info">
+                <div class="img">
+                  <img src="/<%= BANK_ACCOUNT.image %>" />
+                </div>
+                <div class="candidates-name">
+                  <h2><%= BANK_ACCOUNT.name %></h2>
+                  <span><%= BANK_ACCOUNT.profession %></span>
+                </div>
+              </div>
+            </div>
+            <div class="wishes-info">
+              <h2 class="balance">Saldo</h2>
+              <span class="money"><%= BANK_ACCOUNT.money %></span>
+            </div>
+          </div>
+          <div class="economic">
+            <ul>
+              <li>
+                <div class="info">
+                  <img src="/assets/identification-card-light.svg" />
+                  <h2>CPF</h2>
+                  <span class="cpf"><%= BANK_ACCOUNT.cpf %></span>
+                </div>
+              </li>
+              <li>
+                <div class="info">
+                  <img src="/assets/money-light.svg" />
+                  <h2>Salário</h2>
+                  <span class="wage money"><%= BANK_ACCOUNT.wage %></span>
+                </div>
+              </li>
+              <li>
+                <div class="info">
+                  <img src="/assets/credit-card-light.svg" />
+                  <h2>Dívida</h2>
+                  <span class="debt money"><%= BANK_ACCOUNT.debt %></span>
+                </div>
+              </li>
+              <li>
+                <div class="info">
+                  <img src="/assets/trend-up-light.svg" />
+                  <h2>investimento</h2>
+                  <span class="investment money"><%= BANK_ACCOUNT.investment %></span>
+                </div>
+              </li>
+              <li>
+                <div class="info">
+                  <img src="/assets/trend-down-light.svg" />
+                  <h2>Gastos</h2>
+                  <span class="spending money"><%= BANK_ACCOUNT.spending %></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      <% } %>
+    </ul>
+    
+    <% if(BANK_ACCOUNT) { %>
+      <div class="money-transition">
+        <ul class="menu">
+          <a href="#">
+            <li>
+              <img src="/assets/bank-light.svg" />
+              <p>Empréstimo</p>
+            </li>
+          </a>
+          <a href="/group/investment/<%= BANK_ACCOUNT.user_id %>">
+            <li>
+              <img src="/assets/trend-up-light.svg" />
+              <p>Investir</p>
+            </li>
+          </a>
+          <a href="/group/pix/<%= BANK_ACCOUNT.user_id %>">
+            <li>
+              <img src="/assets/coins-light.svg" />
+              <p>Pix</p>
+            </li>
+          </a>
+        </ul>
+      </div>
+    <% } %>
+    <% if(success_message.length > 0) { %>
+      <div class="success_message">
+        <span><%= success_message %></span>
+      </div>
+    <% } %>
+    <% if(error_message.length > 0) { %>
+      <div class="error_message">
+        <span><%= error_message %></span>
+      </div>
+    <% } %>
+  </div>
+  <script type="module" src="/js/bank_account/account_home/main.js"></script>
+  <script type="module" src="/js/bank_account/account_home/menu/main.js"></script>
+</body>
+</html>

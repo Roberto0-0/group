@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+    <link rel="stylesheet" href="/css/bank_account/settings/style.css">
+    <title>Documents</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">DDT</a>
+      <nav class="nav">
+          <ul>
+            <a href="/register" target="__blank">configuração</a>
+            <a href="/dashboard">voltar</a>
+          </ul>
+      </nav>
+      <div class="menu">
+          <img src="/assets/list-bold.svg" alt="" width="100%">
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <h2 class="title">status bancário</h2>
+    <ul class="candidates">
+      <% BANK_ACCOUNT.forEach((account) =>  { %>
+        <li class="li">
+          <div class="first">
+            <div class="candidate">
+              <div class="candidates-info">
+                <div class="img">
+                  <img src="/<%= account.image %>" />
+                </div>
+                <div class="candidates-name">
+                  <h2><%= account.name %></h2>
+                  <span><%= account.profession %></span>
+                </div>
+              </div>
+            </div>
+            <div class="wishes-info">
+              <h2 class="balance">Saldo</h2>
+              <span class="money"><%= account.money %></span>
+            </div>
+          </div>
+          <div class="economic">
+            <ul>
+              <li>
+                <div class="info">
+                  <img src="/assets/money-light.svg" />
+                  <h2>Salário</h2>
+                  <span class="wage money"><%= account.wage %></span>
+                </div>
+              </li>
+              <li>
+                <div class="info">
+                  <img src="/assets/credit-card-light.svg" />
+                  <h2>Dívida</h2>
+                  <span class="wage money"><%= account.debt %></span>
+                </div>
+              </li>
+              <li>
+                <div class="info">
+                  <img src="/assets/trend-up-light.svg" />
+                  <h2>Investimento</h2>
+                  <span class="investment money"><%= account.investment %></span>
+                </div>
+              </li>
+              <li>
+                <div class="info">
+                  <img src="/assets/trend-down-light.svg" />
+                  <h2>Gastos</h2>
+                  <span class="spending money"><%= account.spending %></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="settings">
+            <a href="/group/bank/pay/<%= account.user_id %>">
+              <button class="pay">Pagamento</button>
+            </a>
+            <a href="/group/update/bank/account/<%= account.id %>/<%= account.user_id %>">
+              <button class="edit">Editar</button>
+            </a>
+            <a href="/group/account/delete/<%= account.id %>/<%= account.user_id %>">
+              <button class="delete">Deletar</button>
+            </a>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+      <% if(error.length > 0) { %>
+    <div class="error_message">
+      <span><%= error %></span>
+    </div>
+  <% } %>
+  <% if(success_message.length > 0) { %>
+    <div class="success_message">
+      <span><%= success_message %></span>
+    </div>
+  <% } %>
+  <% if(error_message.length > 0) { %>
+    <div class="error_message">
+      <span><%= error_message %></span>
+    </div>
+  <% } %>
+  </div>
+  <script type="module" src="/js/bank_account/settings/main.js"></script>
+  <script type="module" src="/js/bank_account/settings/menu/main.js"></script>
+</body>
+</html>
